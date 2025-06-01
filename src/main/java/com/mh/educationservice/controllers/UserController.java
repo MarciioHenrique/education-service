@@ -3,7 +3,7 @@ package com.mh.educationservice.controllers;
 import com.mh.educationservice.controllers.requests.LoginRequest;
 import com.mh.educationservice.controllers.requests.RegisterRequest;
 import com.mh.educationservice.controllers.responses.LoginResponse;
-import com.mh.educationservice.controllers.responses.UserResponse;
+import com.mh.educationservice.controllers.responses.RegisterResponse;
 import com.mh.educationservice.domain.user.User;
 import com.mh.educationservice.services.UserService;
 import jakarta.validation.Valid;
@@ -21,9 +21,9 @@ public class UserController {
     private final UserService userService;
 
     @PostMapping
-    public ResponseEntity<UserResponse> createUser(@RequestBody @Valid RegisterRequest request) {
-        User createdUser = userService.createUser(request.toDomain());
-        return ResponseEntity.ok(UserResponse.fromDomain(createdUser));
+    public ResponseEntity<RegisterResponse> register(@RequestBody @Valid RegisterRequest request) {
+        User createdUser = userService.register(request.toDomain());
+        return ResponseEntity.ok(RegisterResponse.fromDomain(createdUser));
     }
 
     @PostMapping("/login")

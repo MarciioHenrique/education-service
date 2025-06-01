@@ -11,7 +11,7 @@ import org.springframework.stereotype.Service;
 public class UserService {
     private final UserPersistence userPersistence;
 
-    public User createUser(User user) {
+    public User register(User user) {
         if (userPersistence.userExistsByEmail(user.getEmail())) {
             throw new IllegalArgumentException("User with this email already exists");
         }
