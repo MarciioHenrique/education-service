@@ -1,6 +1,7 @@
 package com.mh.educationservice.controllers;
 
 import com.mh.educationservice.controllers.requests.LoginRequest;
+import com.mh.educationservice.controllers.requests.RegisterRequest;
 import com.mh.educationservice.controllers.responses.LoginResponse;
 import com.mh.educationservice.controllers.responses.UserResponse;
 import com.mh.educationservice.domain.user.User;
@@ -20,14 +21,14 @@ public class UserController {
     private final UserService userService;
 
     @PostMapping
-    public ResponseEntity<UserResponse> createUser(@RequestBody @Valid User user) {
-        User createdUser = userService.createUser(user);
+    public ResponseEntity<UserResponse> createUser(@RequestBody @Valid RegisterRequest request) {
+        User createdUser = userService.createUser(request.toDomain());
         return ResponseEntity.ok(UserResponse.fromDomain(createdUser));
     }
 
     @PostMapping("/login")
     public ResponseEntity<LoginResponse> login(@RequestBody @Valid LoginRequest request) {
-        String response = userService.login(request);
-        return ResponseEntity.ok(LoginResponse.fromToken(response));
+        User user = userService.login(request);
+        return ResponseEntity.ok(LoginResponse.fromToken(user.getKey(), "token"));
     }
 }

@@ -18,12 +18,12 @@ public class UserService {
         return userPersistence.saveUser(user);
     }
 
-    public String login(LoginRequest request) {
+    public User login(LoginRequest request) {
         User user = userPersistence.findByEmail(request.email());
         if (user == null || !user.getPassword().equals(request.password())) {
             throw new IllegalArgumentException("Invalid email or password");
         }
 
-        return "Login successful";
+        return user;
     }
 }
