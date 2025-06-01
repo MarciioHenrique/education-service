@@ -1,8 +1,8 @@
 package com.mh.educationservice.controllers;
 
-import com.mh.educationservice.controllers.dtos.request.LoginRequest;
-import com.mh.educationservice.controllers.dtos.response.LoginResponse;
-import com.mh.educationservice.controllers.dtos.response.UserResponse;
+import com.mh.educationservice.controllers.requests.LoginRequest;
+import com.mh.educationservice.controllers.responses.LoginResponse;
+import com.mh.educationservice.controllers.responses.UserResponse;
 import com.mh.educationservice.domain.user.User;
 import com.mh.educationservice.services.UserService;
 import jakarta.validation.Valid;

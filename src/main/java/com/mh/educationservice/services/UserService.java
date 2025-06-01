@@ -1,6 +1,6 @@
 package com.mh.educationservice.services;
 
-import com.mh.educationservice.controllers.dtos.request.LoginRequest;
+import com.mh.educationservice.controllers.requests.LoginRequest;
 import com.mh.educationservice.domain.user.User;
 import com.mh.educationservice.persistence.UserPersistence;
 import lombok.AllArgsConstructor;

@@ -1,4 +1,4 @@
-package com.mh.educationservice.controllers.dtos.request;
+package com.mh.educationservice.controllers.requests;
 
 import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotBlank;

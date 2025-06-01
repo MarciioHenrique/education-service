@@ -1,4 +1,4 @@
-package com.mh.educationservice.controllers.dtos.response;
+package com.mh.educationservice.controllers.responses;
 
 import com.mh.educationservice.domain.user.User;
 import com.mh.educationservice.domain.user.UserRole;

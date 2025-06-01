@@ -1,4 +1,4 @@
-package com.mh.educationservice.controllers.dtos.response;
+package com.mh.educationservice.controllers.responses;
 
 public record LoginResponse(
         String token
