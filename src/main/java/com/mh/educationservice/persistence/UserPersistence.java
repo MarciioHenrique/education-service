@@ -16,7 +16,13 @@ public class UserPersistence {
         return userRepository.save(userEntity).toDomain();
     }
 
-    public Boolean userExistsByEmail(String email) {
+    public boolean userExistsByEmail(String email) {
         return userRepository.existsByEmail(email);
+    }
+
+    public User findByEmail(String email) {
+        return userRepository.findByEmail(email)
+                .map(UserEntity::toDomain)
+                .orElse(null);
     }
 }
