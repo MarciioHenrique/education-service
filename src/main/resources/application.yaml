@@ -1,0 +1,5 @@
+spring:
+  flyway:
+    enabled: ${ENABLE_MIGRATION:false}
+  datasource:
+    url: ${JDBC_DATABASE_URL}

@@ -1,11 +1,12 @@
 plugins {
-    id 'java'
-    id 'org.springframework.boot' version '3.5.0'
-    id 'io.spring.dependency-management' version '1.1.7'
+    id "java"
+    id "org.springframework.boot" version "3.5.0"
+    id "io.spring.dependency-management" version "1.1.7"
+    id "org.flywaydb.flyway" version "9.22.3"
 }
 
-group = 'com.mh'
-version = '0.0.1-SNAPSHOT'
+group = "com.mh"
+version = "0.0.1-SNAPSHOT"
 
 java {
     toolchain {
@@ -17,18 +18,23 @@ repositories {
     mavenCentral()
 }
 
+String lombokVersion = "1.18.38"
+String flywayVersion = "9.22.3"
+
 dependencies {
-//    compileOnly("org.projectlombok:lombok:1.18.38")
-//    annotationProcessor("org.projectlombok:lombok:1.18.38")
+    compileOnly "org.projectlombok:lombok:${lombokVersion}"
+    annotationProcessor "org.projectlombok:lombok:${lombokVersion}"
 
-//    implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
-//    implementation 'org.flywaydb:flyway-core'
+    implementation "org.springframework.boot:spring-boot-starter-data-jpa"
+    implementation "org.flywaydb:flyway-core:${flywayVersion}"
+    runtimeOnly "org.postgresql:postgresql"
 
-    implementation 'org.springframework.boot:spring-boot-starter-web'
-    testImplementation 'org.springframework.boot:spring-boot-starter-test'
-    testRuntimeOnly 'org.junit.platform:junit-platform-launcher'
+    implementation "org.springframework.boot:spring-boot-starter-validation"
+    implementation "org.springframework.boot:spring-boot-starter-web"
+    testImplementation "org.springframework.boot:spring-boot-starter-test"
+    testRuntimeOnly "org.junit.platform:junit-platform-launcher"
 }
 
-tasks.named('test') {
+tasks.named("test") {
     useJUnitPlatform()
 }
